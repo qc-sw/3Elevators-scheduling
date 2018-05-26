@@ -3,26 +3,26 @@
   <Class Name="Elevator">
     <Position X="3" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQACiAAAIQAIAAEAAAIQCAAAAAgAACAAAAAAIIAQAA=</HashCode>
+      <HashCode>AAQACiAAAIQAIAAEAAAIQCAAAAAgAACAAAAAAIICQAA=</HashCode>
       <FileName>Elevator.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ElevatorOdd">
-    <Position X="0.5" Y="2" Width="1.5" />
+    <Position X="1" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAACAAAAAAAAAAAAAAAQAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAACgAAAAAAAAAAAAAAQAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Elevator.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ElevatorEven">
-    <Position X="5" Y="2" Width="1.5" />
+    <Position X="5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAACAAAAAAAAAAAAAAAQAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAACgAAAAAAAAAAAAAAQAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Elevator.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Struct Name="Passenger" Collapsed="true">
-    <Position X="6.25" Y="0.75" Width="1.5" />
+  <Struct Name="Passenger">
+    <Position X="5.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAIAAAAAAAAAACAAAAAAAAAAAABIAAAAA=</HashCode>
       <FileName>Elevator.h</FileName>

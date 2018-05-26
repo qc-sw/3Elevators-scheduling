@@ -10,7 +10,7 @@ int Elevator::currentFloor() {
 	return floor;
 }
 bool Elevator::isEmpty() {
-	if (load == 0) return 1;
+	if (load == 0) return 1;  
 	return 0;
 }
 void Elevator::get(int index) {

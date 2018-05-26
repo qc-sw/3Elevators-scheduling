@@ -3,11 +3,27 @@
 int time=1;
 queue <int> destination_queue[4];							//请求队列(为了方便建四个)
 Passenger man[1005];
-ifstream infile("input.txt");
-ofstream outfile1("output1.txt");
-ofstream outfile2("output2.txt");
-ofstream outfile3("output3.txt");
-int main() {
+int main(int argc, char** argv) {
+	if (argc == 5)
+		;
+	else if (argc >5)
+	{
+		printf("Too many arguments supplied.\n");
+		return 0;
+	}
+	else
+	{
+		printf("%d argument expected.\n",5-argc);
+		return 0;
+	}
+	ifstream infile(argv[1]);
+	if (!infile) {
+		cout << "fatal: there is no such file named" << argv[1];
+		return 0;
+	}
+	ofstream outfile1(argv[2]);
+	ofstream outfile2(argv[3]);
+	ofstream outfile3(argv[4]);
 	outfile1.clear();
 	outfile1.close();
 	outfile2.clear();
@@ -93,6 +109,6 @@ int main() {
 		}
 		
 	}
-	system("pause");
+	cout << "The program runs successfully!" << endl;
 	return 0;
 }
