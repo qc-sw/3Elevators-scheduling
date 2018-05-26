@@ -47,8 +47,8 @@ int main(int argc, char** argv) {
 	infile.close();
 	//给第0个乘客的终点赋值1
 	man[0].destination = 1;						
-	//时间轴外圈循环(max_time+20保证每个乘客都到达目的地)
-	for (time = 1;time <= max_time + 20;++time) {
+	//时间轴外圈循环(max_time+30保证每个乘客都到达目的地)
+	for (time = 1;time <= max_time + 30;++time) {
     	 //改变乘客状态并对等待乘客入列处理
 		for (int i = 1;i <= n;i++) 		
 			if (time == man[i].ask_time&&man[i].status=="unknown")
@@ -87,28 +87,10 @@ int main(int argc, char** argv) {
 			elevatorOdd.run(index[1], 1);
 			elevator.run(index[2], 2);
 			elevatorEven.run(index[3], 3);
-			/*
-			if (elevatorOdd.priority(index[1]) > elevator.priority(index[1]) && elevatorOdd.priority(index[1]) > elevatorEven.priority(index[1]))
-			{
-				cout << time << " run 1" << endl;
-				elevatorOdd.run(index[1], 1);
-			}
-			else
-				if (elevatorEven.priority(index[3]) > elevator.priority(index[3]) && elevatorEven.priority(index[3]) > elevatorOdd.priority(index[3]))
-				{
-					cout << time << " run 3" << endl;
-					elevatorEven.run(index[3], 3);
-				}
-			else
-			{
-				cout << time << " run 2" << endl;
-				elevator.run(index[2], 2);
-			}
-			*/
-
 		}
 		
 	}
 	cout << "The program runs successfully!" << endl;
+	system("pause");
 	return 0;
 }
