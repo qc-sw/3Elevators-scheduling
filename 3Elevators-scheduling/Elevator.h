@@ -25,28 +25,28 @@ public:
 	~Elevator();
 	int currentTime();										//显示当前时间
 	int currentFloor();										//显示当前楼层
-	void get(int index);
-	void put(int n, int index_of_man);
+	void get(int index, char** argv);
+	void put(int n, int index_of_man, char** argv);
 	bool isEmpty();
 	int numToPut(int index);
 	bool stop(int index);
 	int priority(int index);
-	void run(int index,int i);
+	void run(int index,int i, char** argv);
 };
 class ElevatorOdd :public Elevator
 {
 public:
 	bool stop(int index);
-	void get(int index);
-	void put(int n, int index);
-	void run(int index, int i);
+	void get(int index, char** argv);
+	void put(int n, int index, char** argv);
+	void run(int index, int i, char** argv);
 };
 class ElevatorEven :public Elevator
 {
 public:
 	bool stop(int index);
-	void get(int index);
-	void put(int n, int index);
-	void run(int index, int i);
+	void get(int index, char** argv);
+	void put(int n, int index, char** argv);
+	void run(int index, int i, char** argv);
 };
 #endif

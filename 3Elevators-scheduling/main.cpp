@@ -47,7 +47,7 @@ int main(int argc, char** argv) {
 	infile.close();
 	//给第0个乘客的终点赋值1
 	man[0].destination = 1;						
-	//时间轴外圈循环(max_time+30保证每个乘客都到达目的地)
+	//时间轴外圈循环(max_time+3 0保证每个乘客都到达目的地)
 	for (time = 1;time <= max_time + 30;++time) {
     	 //改变乘客状态并对等待乘客入列处理
 		for (int i = 1;i <= n;i++) 		
@@ -84,9 +84,9 @@ int main(int argc, char** argv) {
 		//否则电梯必定运行
 		else
 		{	
-			elevatorOdd.run(index[1], 1);
-			elevator.run(index[2], 2);
-			elevatorEven.run(index[3], 3);
+			elevatorOdd.run(index[1], 1, argv);
+			elevator.run(index[2], 2, argv);
+			elevatorEven.run(index[3], 3,  argv);
 		}
 		
 	}

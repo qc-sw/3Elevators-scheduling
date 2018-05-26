@@ -13,20 +13,20 @@ bool Elevator::isEmpty() {
 	if (load == 0) return 1;  
 	return 0;
 }
-void Elevator::get(int index) {
+void Elevator::get(int index, char** argv) {
 	man[index].status = "in";
 	status = 0;
 	load++;
-	ofstream outfile2("./output2.txt", ios::app);
+	ofstream outfile2(argv[3], ios::app);
 	outfile2 << time << " " << floor << endl;
 	outfile2.close();
 	//cout << "Elevator 2 in time" << time << " get in floor" << floor << endl;//待删除
 }
-void Elevator::put(int n, int index_of_man) {
+void Elevator::put(int n, int index_of_man, char** argv) {
 	load -= n;
 	man[index_of_man].status = "out";
 	status = 0;
-	ofstream outfile2("./output2.txt", ios::app);
+	ofstream outfile2(argv[3], ios::app);
 	outfile2 << time << " " << floor << endl;
 	outfile2.close();
 	//cout << "Elevator 2 in time" << time << " put in floor" << floor << endl;//待删除
@@ -55,20 +55,20 @@ bool ElevatorEven::stop(int index) {
 		return true;
 	return false;
 }
-void ElevatorOdd::get(int index) {
+void ElevatorOdd::get(int index, char** argv) {
 	man[index].status = "in";
 	status = 0;
 	load++;
-	ofstream outfile1("./output1.txt", ios::app);
+	ofstream outfile1(argv[2], ios::app);
 	outfile1 << time << " " << floor << endl;
 	outfile1.close();
 	//cout << "Elevator 1 in time" << time << " get in floor" << floor << endl;//待删除
 }
-void ElevatorOdd::put(int n, int index) {
+void ElevatorOdd::put(int n, int index,char **argv) {
 	load -= n;
 	man[index].status = "out";
 	status = 0;
-	ofstream outfile1("./output1.txt", ios::app);
+	ofstream outfile1(argv[2], ios::app);
 	outfile1 << time << " " << floor << endl;
 	outfile1.close();
 	//cout << "Elevator 1 in time" << time << " put in floor" << floor << endl;//待删除
@@ -76,20 +76,20 @@ void ElevatorOdd::put(int n, int index) {
 	while (destination_queue[2].empty())
 		destination_queue[1].pop();
 }
-void ElevatorEven::get(int index) {
+void ElevatorEven::get(int index, char** argv) {
 	man[index].status = "in";
 	status = 0;
 	load++;
-	ofstream outfile3("./output3.txt", ios::app);
+	ofstream outfile3(argv[4], ios::app);
 	outfile3 << time << " " << floor << endl;
 	outfile3.close();
 	//cout << "Elevator 3 in time" << time << " get in floor" << floor << endl;//待删除
 }
-void ElevatorEven::put(int n, int index) {
+void ElevatorEven::put(int n, int index, char** argv) {
 	load -= n;
 	man[index].status = "out";
 	status = 0;
-	ofstream outfile3("./output3.txt", ios::app);
+	ofstream outfile3(argv[4], ios::app);
 	outfile3 << time << " " << floor << endl;
 	outfile3.close();
 	//cout << "Elevator 3 in time" << time << " put in floor" << floor << endl;//待删除
@@ -108,7 +108,7 @@ int Elevator::priority(int index) {
 
 	return Priority;
 }
-void Elevator::run(int index,int i) {
+void Elevator::run(int index,int i, char** argv) {
 	if (destination_queue[i].empty())
 		return;
 	//还没接到客前
@@ -135,7 +135,7 @@ void Elevator::run(int index,int i) {
 						man[index].status = "in";
 					}
 					else
-						get(index);
+						get(index,argv);
 				}
 	}
 	else	//接到客后
@@ -154,11 +154,11 @@ void Elevator::run(int index,int i) {
 				}
 				else
 					if (destination_queue[i].front() == floor && man[index].status == "in")
-						put(numToPut(index), index);
+						put(numToPut(index), index,argv);
 			
 		}
 }
-void ElevatorOdd::run(int index, int i) {
+void ElevatorOdd::run(int index, int i, char** argv) {
 	if (destination_queue[i].empty())
 		return;
 	//还没接到客前
@@ -185,7 +185,7 @@ void ElevatorOdd::run(int index, int i) {
 						man[index].status = "in";
 					}
 					else
-						get(index);
+						get(index,argv);
 				}
 	}
 	else	//接到客后
@@ -204,11 +204,11 @@ void ElevatorOdd::run(int index, int i) {
 				}
 				else
 					if (destination_queue[i].front() == floor && man[index].status == "in")
-						put(numToPut(index), index);
+						put(numToPut(index), index,argv);
 
 		}
 }
-void ElevatorEven::run(int index, int i) {
+void ElevatorEven::run(int index, int i, char** argv) {
 	if (destination_queue[i].empty())
 		return;
 	//还没接到客前
@@ -235,7 +235,7 @@ void ElevatorEven::run(int index, int i) {
 						man[index].status = "in";
 					}
 					else
-						get(index);
+						get(index,argv);
 				}
 	}
 	else	//接到客后
@@ -254,7 +254,7 @@ void ElevatorEven::run(int index, int i) {
 				}
 				else
 					if (destination_queue[i].front() == floor && man[index].status == "in")
-						put(numToPut(index), index);
+						put(numToPut(index), index,argv);
 
 		}
 }
